@@ -1,4 +1,9 @@
-As a collaborative panel of enterprise infrastructure experts (MLOps Architect, SRE Director, and DevOps Lead with 20+ years of experience scaling mission-critical AI systems), provide a comprehensive technical blueprint for gradually deploying new LLM versions in production environments that minimizes risk while enabling rapid iteration.
+As a collaborative panel of enterprise infrastructure experts (MLOps Architect, SRE Director, and DevOps Lead with 20+ years of experience scaling mission-critical AI systems), provide a comprehensive technical blueprint
+for Autoscaling LLM inference using KEDA with Prometheus Adapter
+
+**Description:** Analyze different custom metrics (queue length, GPU utilization) for autoscaling.
+
+**Research Areas:** KEDA docs, Kubernetes custom metrics setup.
 
 ## FACTUAL ACCURACY REQUIREMENTS
 - Present only verified, accurate technical information with no fabrication or hallucination
@@ -56,6 +61,7 @@ Include specific code examples, configuration snippets, architecture diagrams, a
 ############################
 
 As a collaborative panel of enterprise infrastructure experts (MLOps Architect with expertise in model serving frameworks, SRE Director with experience managing high-throughput AI systems, and DevOps Lead specializing in GPU infrastructure), provide a comprehensive technical analysis of LLM-Aware Rate Limiting and Throttling Strategies: "Detail token-aware rate limiting and throttling implementations for LLM APIs, including algorithms that account for computational complexity rather than just request count, fair sharing approaches for multi-tenant systems, and graceful degradation patterns. Include code examples, configuration patterns, and integration with authentication systems." as it applies to LLM inference systems.
+
 
 ## FACTUAL ACCURACY AND CITATION REQUIREMENTS
 - Present only verified, accurate technical information with no fabrication or speculation
@@ -116,4 +122,67 @@ For each visualization, explain:
 - Appropriate audience and use case
 - Essential elements to include
 
+Ensure all technical details are accurate, properly cited, and represent current industry practices. The analysis should be detailed enough for senior MLOps engineers to implement while being conceptually clear enough for technical decision-makers to understand the strategic implications.
+
+
+
+
+As a collaborative panel of enterprise infrastructure experts (MLOps Architect with expertise in model serving frameworks, SRE Director with experience managing high-throughput AI systems, and DevOps Lead specializing in GPU infrastructure), provide a comprehensive technical analysis of Autoscaling LLM inference using KEDA with Prometheus Adapter
+**Description:** Analyze different custom metrics (queue length, GPU utilization) for autoscaling.
+
+**Research Areas:** KEDA docs, Kubernetes custom metrics setup.
+
+FACTUAL ACCURACY AND CITATION REQUIREMENTS
+Present only verified, accurate technical information with no fabrication or speculation
+Back all technical claims with specific citations to documentation, research papers, or recognized industry practices
+Provide resource links to official documentation, GitHub repositories, and technical references
+Clearly distinguish between established best practices and emerging approaches
+If information is limited or uncertain in any area, acknowledge the limitations rather than speculating
+TECHNICAL FOUNDATION
+Explain the core technical concepts and underlying mechanisms relevant to [LLM-Aware Rate Limiting and Throttling Strategies]
+Analyze how this topic specifically impacts LLM inference workloads versus traditional applications
+Detail the technical evolution of approaches to this challenge in production environments
+Outline the current state-of-the-art methods and tooling
+Real-World Examples and documented implemetnations
+IMPLEMENTATION ARCHITECTURE
+Provide detailed reference architectures with components and data flows
+Address implementation differences across scales (small, medium, and large deployments)
+Highlight integration points with the broader MLOps/SRE ecosystem
+Model specific strategies
+Discuss relevant cloud provider-specific implementations where applicable
+OPERATIONAL CONSIDERATIONS
+Detail monitoring approaches and key metrics for tracking system health
+Explain failure modes, debugging methodologies, and troubleshooting frameworks
+Emergency patterns
+Provide performance optimization techniques with quantifiable improvement expectations
+Outline operational runbook components for managing the system
+EVALUATION FRAMEWORK
+Define success criteria and SLOs/SLIs specific to this aspect of LLM operations
+Detail testing methodologies to validate implementations
+Provide benchmark approaches or tools for comparative analysis
+Outline a maturity model for assessing implementation quality
+TRADE-OFFS AND DECISION FRAMEWORK
+Analyze the key architectural and implementation trade-offs (performance, cost, complexity)
+Provide a decision framework for selecting appropriate approaches based on requirements
+Discuss common pitfalls and mitigation strategies
+Outline migration paths for evolving systems
+INFORMATION SYNTHESIS
+Condense the most critical technical insights into a concise, actionable summary
+Highlight the 3-5 most important technical considerations for implementation
+Provide a phased implementation roadmap for organizations at different maturity levels
+VISUALIZATION APPROACHES
+Do not use the text based visualizations
+Suggest 3-4 different visualization methods to effectively communicate the technical concepts, such as:
+
+Architecture diagrams showing components and interactions
+Decision trees or flowcharts for implementation choices
+Process flows showing operational procedures
+Comparative matrices of different approaches
+Performance characteristic graphs
+
+For each visualization, explain:
+
+Key information it would convey
+Appropriate audience and use case
+Essential elements to include
 Ensure all technical details are accurate, properly cited, and represent current industry practices. The analysis should be detailed enough for senior MLOps engineers to implement while being conceptually clear enough for technical decision-makers to understand the strategic implications.

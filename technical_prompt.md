@@ -1,4 +1,8 @@
-As a seasoned GenAI infrastructure consultant with extensive experience in SRE, DevOps, and MLOps, create a detailed, research-based case study for Week 1 of my content calendar that focuses on Unpredictable latency spikes in high-volume LLM inference.
+As a seasoned GenAI infrastructure consultant with extensive experience in SRE, DevOps, and MLOps, create a detailed, research-based case study for Week 1 of my content calendar that focuses on Autoscaling LLM inference using KEDA with Prometheus Adapter
+
+**Description:** Analyze different custom metrics (queue length, GPU utilization) for autoscaling.
+
+**Research Areas:** KEDA docs, Kubernetes custom metrics setup.
 
 ## CASE STUDY FOUNDATION
 1. Create a realistic but anonymized scenario that represents common challenges at the intersection of GenAI and SRE/DevOps/MLOps, including:
