@@ -38,7 +38,8 @@ This document contains technical content ideas focused on infrastructure, operat
 **Description:** Deep dive into histogram queries (histogram_quantile, bucket sizing).
 
 **Research Areas:** Official Prometheus docs, Grafana histogram visualization.
-  ***Critical Technical Insights***
+
+***Critical Technical Insights***
 
     1. LLM latencies require custom histogram buckets - Default Prometheus buckets miss 60-80% of the distribution range for typical LLM workloads
     2. Phase-specific monitoring is essential - Prefill and decode phases have fundamentally different latency characteristics requiring separate tracking
