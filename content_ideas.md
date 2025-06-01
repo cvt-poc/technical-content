@@ -40,12 +40,17 @@ This document contains technical content ideas focused on infrastructure, operat
 **Research Areas:** Official Prometheus docs, Grafana histogram visualization.
 
 ***Critical Technical Insights***
+    Explain how histograms work in general
+    How does it calculate the p95 and what are the best practices to deal with it
+    
 
     1. LLM latencies require custom histogram buckets - Default Prometheus buckets miss 60-80% of the distribution range for typical LLM workloads
     2. Phase-specific monitoring is essential - Prefill and decode phases have fundamentally different latency characteristics requiring separate tracking
     3. Recording rules are mandatory at scale - Pre-computing common quantiles reduces query time by 10-100x for high-cardinality deployments
     4. Bucket boundary selection directly impacts SLO accuracy - Poor bucket configuration can introduce 20-30% measurement error
     5. Histogram aggregation order matters - Always sum buckets before calculating quantiles to avoid mathematical errors
+
+
 
 ### GPU Resource Monitoring & Profiling with NVIDIA DCGM
 
