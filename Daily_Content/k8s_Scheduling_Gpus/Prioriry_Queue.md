@@ -15,3 +15,4 @@ Custom plugins can extend sorting logic for gang scheduling, QoS, business metri
 
 This shows how Kubernetes's priority system isn't just about "important vs unimportant" - it's a sophisticated traffic management system that ensures cluster stability during crises, efficient resource utilization during normal operations, and business continuity during high-load events.
 ![alt text](image.png)
+![alt text](priority_queue.png)
