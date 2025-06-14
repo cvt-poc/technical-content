@@ -1,35 +1,90 @@
-1. Input Phase
+# Kubernetes Scheduler Decision Flow
 
-Pod with specific requirements (2GB memory, 1 CPU, SSD disk)
-4 nodes with different capabilities and states
+This document outlines the internal phases of the Kubernetes **scheduling framework** using a real-world scenario: scheduling a pod with specific resource and affinity requirements across a set of heterogeneous nodes.
 
-2. PreFilter Phase
+---
 
-Global validation step before node-by-node filtering
-Checks cluster-wide constraints and can abort early
+## 1. 📝 Input Phase
 
-3. Filter Phase (Sequential Elimination)
+- **Pod Requirements**:
+  - 2GB Memory
+  - 1 CPU
+  - SSD Disk
 
-NodeResourcesFit: Eliminates Node-2 (insufficient memory)
-NodeAffinity: Checks remaining nodes for SSD requirement
-NodeUnschedulable: Eliminates Node-4 (marked unschedulable)
-Result: Only Node-1 and Node-3 remain feasible
+- **Available Nodes**:
+  - 4 nodes with varying resources and constraints
 
-4. PostFilter Phase (Preemption)
+---
 
-Only triggers when no feasible nodes found
-Last resort attempt to evict lower-priority pods
-Either succeeds and continues, or fails and marks pod unschedulable
+## 2. 🔍 PreFilter Phase
 
-5. Score Phase (Ranking Competition)
+- **Purpose**:
+  - Perform **global validations** before evaluating individual nodes.
 
-NodeResourcesFit: Node-3 scores higher (75% vs 50% free resources)
-NodeAffinity: Both score perfectly (100) for SSD match
-Additional plugins: Volume, topology favor Node-3
-Weighted combination: Produces final scores
+- **Outcome**:
+  - Aborts early if cluster-wide constraints (e.g., quota limits) are violated.
 
-6. Winner Selection
+---
 
-Node-3 wins with 265 points vs Node-1's 230 points
-Best overall fit: Superior resource availability + perfect requirements match
-Continues to binding cycle
+## 3. 🚫 Filter Phase (Sequential Elimination)
+
+Each plugin filters out nodes that don’t meet the pod’s criteria:
+
+| Plugin             | Action                                             |
+|--------------------|----------------------------------------------------|
+| `NodeResourcesFit` | **Eliminates Node-2**: Insufficient memory         |
+| `NodeAffinity`     | Checks for SSD requirement on remaining nodes      |
+| `NodeUnschedulable`| **Eliminates Node-4**: Marked as unschedulable     |
+
+- **Feasible Nodes After Filtering**:
+  - ✅ Node-1
+  - ✅ Node-3
+
+---
+
+## 4. 🧹 PostFilter Phase (Preemption)
+
+- **When it triggers**:
+  - **Only** when **no nodes** pass the Filter phase.
+
+- **What it does**:
+  - Attempts **preemption**: evicting lower-priority pods to make room.
+
+- **Outcome**:
+  - If successful, continues to scoring.
+  - If not, pod is marked **unschedulable**.
+
+---
+
+## 5. 🧮 Score Phase (Ranking Competition)
+
+Remaining nodes are ranked using multiple scoring plugins:
+
+| Plugin             | Node-1 Score | Node-3 Score |
+|--------------------|--------------|---------------|
+| `NodeResourcesFit` | 50% free     | 75% free      |
+| `NodeAffinity`     | 100          | 100           |
+| `Volume/Topology`  | Favorable    | Highly Favorable |
+
+- **Final Score (Weighted)**:
+  - Node-1: **230 points**
+  - Node-3: **265 points**
+
+---
+
+## 6. 🏆 Winner Selection
+
+- **Selected Node**: **Node-3**
+- **Reason**: 
+  - Higher overall score due to better resource availability and perfect SSD match.
+- **Next Step**: Proceeds to **binding phase** to finalize scheduling.
+
+---
+
+## 📘 Summary
+
+Kubernetes uses a **multi-phase scheduling pipeline** that includes validation, elimination, scoring, and preemption. This process ensures pods land on the most suitable node — optimizing for both resource fit and policy compliance.
+
+
+
+![alt text](Node_Selection.png)
