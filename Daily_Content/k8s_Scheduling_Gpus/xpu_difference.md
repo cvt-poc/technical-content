@@ -29,3 +29,4 @@
   - Abrupt termination via OOM killer when limits are exceeded.  
 - **GPU**  
   - Behaves like application-level crashes; the container must handle GPU errors itself.  
+![alt text](Xpu_Difference.png)
