@@ -11,5 +11,5 @@ The Master Planner,Bin Packing,"Maximizes utilization, best for cost savings"
 The Safety Inspector,Spread Scheduling,"Increases fault tolerance, balances heat/load"
 The Synchronized Party,Gang Scheduling,"All-or-nothing for distributed jobs"
 The VIP Room Manager,Topology-Aware Scheduling,"Optimizes for communication between jobs"
-
-![alt text](priority_queue.png)
+```
+![alt text](GPU_Scheduling.png)
