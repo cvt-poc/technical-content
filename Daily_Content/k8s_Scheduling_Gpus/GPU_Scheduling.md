@@ -12,4 +12,4 @@ The Safety Inspector,Spread Scheduling,"Increases fault tolerance, balances heat
 The Synchronized Party,Gang Scheduling,"All-or-nothing for distributed jobs"
 The VIP Room Manager,Topology-Aware Scheduling,"Optimizes for communication between jobs"
 
-![alt text](GPU_Scheduling.png)
+![alt text](Daily_Content/k8s_Scheduling_Gpus/GPU_Scheduling.png)
